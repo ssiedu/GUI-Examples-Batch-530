@@ -1,7 +1,7 @@
 
 import java.awt.Button;
-import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.TextField;
 
@@ -17,7 +17,11 @@ public class GUIOne {
             TextField t1=new TextField(10);
             Button b1=new Button("Submit");
         //add components on container
-            f.setLayout(new FlowLayout());
+            //f.setLayout(new FlowLayout());
+            //FlowLayout fL=new FlowLayout();
+            GridLayout gL=new GridLayout(2,2);
+            f.setLayout(gL);
+            
             f.add(l1); f.add(t1); f.add(b1);
     }
 }

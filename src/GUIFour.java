@@ -7,9 +7,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.TextEvent;
+import java.awt.event.TextListener;
 
-public class GUIFour extends Frame implements ActionListener, FocusListener {
+public class GUIFour extends Frame implements ActionListener, FocusListener, TextListener, KeyListener{
 
+    
+    
     public GUIFour() {
         initComponents();
     }
@@ -32,6 +39,8 @@ public class GUIFour extends Frame implements ActionListener, FocusListener {
         b2.addActionListener(this);
         b3.addActionListener(this);
         b2.addFocusListener(this);
+        t1.addTextListener(this);
+        t1.addKeyListener(this);
     }
 
     public static void main(String[] args) {
@@ -78,5 +87,38 @@ public class GUIFour extends Frame implements ActionListener, FocusListener {
     3) generates a method called initComponents
     4) generates a constructor and call initCompoenent in it.
      */
+
+    @Override
+    public void textValueChanged(TextEvent e) {
+        String s=t1.getText();
+        t2.setText(s);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+ 
+        int code=e.getKeyCode();
+        if(code==KeyEvent.VK_F1){
+            String s1=t1.getText();
+            String s2=s1.toUpperCase();
+            t1.setText(s2);
+        }else if(code==KeyEvent.VK_F2){
+            t1.setText(t1.getText().toLowerCase());
+        }else if(code==KeyEvent.VK_ESCAPE){
+            t1.setText("");
+        }
+        
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
 
 }
